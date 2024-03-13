@@ -17,7 +17,7 @@ export default function GenerateRecipe() {
     });
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `${process.env.BACKEND_ENDPOINT}/cocktail?${queryString}`
+        ? `/cocktail?${queryString}`
         : `/cocktail?${queryString}`;
 
     const url = `${baseUrl}?${queryString}`;
