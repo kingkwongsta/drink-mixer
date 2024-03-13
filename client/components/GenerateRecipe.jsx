@@ -17,7 +17,7 @@ export default function GenerateRecipe() {
     });
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `/cocktail?${queryString}`
+        ? `https://drink-mixer-backend.vercel.app/cocktail?${queryString}`
         : `/cocktail?${queryString}`;
 
     const url = `${baseUrl}?${queryString}`;
