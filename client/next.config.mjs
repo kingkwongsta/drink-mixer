@@ -7,7 +7,7 @@ const nextConfig = {
     },
     {
       source: "/cocktail", // Matches requests to /api/cocktail
-      destination: "https://langchain-backend-kappa.vercel.app/cocktail", // Forward to backend URL
+      destination: "https://drink-mixer-backend.vercel.app//cocktail", // Forward to backend URL
     },
   ],
   async headers() {

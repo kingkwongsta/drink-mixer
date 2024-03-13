@@ -17,7 +17,7 @@ export default function GenerateRecipe() {
     });
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `https://langchain-backend-kappa.vercel.app/cocktail?${queryString}`
+        ? `https://drink-mixer-backend.vercel.app//cocktail?${queryString}`
         : `/cocktail?${queryString}`;
 
     const url = `${baseUrl}?${queryString}`;
