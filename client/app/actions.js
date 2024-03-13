@@ -1,8 +1,6 @@
 "use server";
-import OpenAI from "openai";
 import { Client } from "@octoai/client";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const client = new Client(process.env.OCTOAI_TOKEN);
 
 export async function createCompletion(userFlavor, userLiquor, userMood) {
@@ -10,12 +8,9 @@ export async function createCompletion(userFlavor, userLiquor, userMood) {
     return { error: "preferences have not been set" };
   }
 
-  // Generate recipe using OpenAI - GPT-3.5
   const userPreferences = `contains ${userLiquor} and emphasizes a ${userFlavor} flavor profile for a ${userMood} mood`;
 
   const instructions = `create a unique creative advance cocktail based on the user preferences in the text delimited by triple periods `;
-  // const output_format =
-  //   'JSON output should look like: "name", "description" "ingredients" (array of key-value pairs with "name" and "quantity"), "instructions"';
   const jsonformat = {
     name: "Sour Nostalgia",
     description:
@@ -45,18 +40,6 @@ export async function createCompletion(userFlavor, userLiquor, userMood) {
 
   const prompt =
     instructions + negative + output_format + `...${userPreferences}...`;
-  const messages = [
-    {
-      role: "system",
-      content: "You are a helpful mixologist designed to output JSON.",
-    },
-    { role: "user", content: prompt },
-  ];
-
-  // const completion = await openai.chat.completions.create({
-  //   model: "gpt-3.5-turbo",
-  //   messages,
-  // });
   const completion = await client.completions.create({
     model: "smaug-72b-chat",
     prompt: prompt,
