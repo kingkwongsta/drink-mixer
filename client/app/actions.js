@@ -1,7 +1,7 @@
 "use server";
 import { Client } from "@octoai/client";
 
-const client = new Client(process.env.OCTOAI_TOKEN);
+const client = new Client(process.env.OCTOAI_API_TOKEN);
 
 export async function createCompletion(userFlavor, userLiquor, userMood) {
   if (!userFlavor && !userLiquor && !userMood) {
