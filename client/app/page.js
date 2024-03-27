@@ -4,6 +4,7 @@ import Dropdown from "@/components/dropdown";
 import GenerateRecipe from "@/components/GenerateRecipe";
 import RecipeCard from "@/components/RecipeCard";
 import userStore from "@/lib/userStore";
+import Transition from "@/lib/transition";
 import { useState } from "react";
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       <Dropdown />
       <div className="flex flex-col items-center">
         {!drinkRecipe && <GenerateRecipe />}
-        {drinkRecipe && <RecipeCard />}
+        <Transition>{drinkRecipe && <RecipeCard />}</Transition>
       </div>
       {/* <button onClick={() => console.log(drinkRecipe)}>get data</button>
       <button onClick={() => console.log(drinkImage)}>get image</button> */}

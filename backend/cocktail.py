@@ -33,7 +33,7 @@ def generate_cocktail_recipe(liquor: str, flavor: str, mood: str) -> Recipe:
             "model": "mixtral-8x7b-instruct",
             "max_tokens": 2000,
             "presence_penalty": 0,
-            "temperature": 0.6,
+            "temperature": 0.8,
             "top_p": 0.9,
             "messages": [
                 {"role": "system", "content": "You are an expert mixologist that outputs JSON"}
