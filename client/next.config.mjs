@@ -2,12 +2,12 @@
 const nextConfig = {
   rewrites: async () => [
     {
-      source: "/cocktail", // Matches requests to /api/cocktail
+      source: "/cocktail", // Matches requests to /cocktail
       destination: "http://127.0.0.1:8000/cocktail", // Forward to backend URL
     },
     {
-      source: "/cocktail", // Matches requests to /api/cocktail
-      destination: "https://drink-mixer-backend.vercel.app/cocktail", // Forward to backend URL
+      source: "/cocktail", // Matches requests to /cocktail
+      destination: "https://march28-2twnlcizjq-wl.a.run.app/cocktail", // Forward to backend URL
     },
   ],
   async headers() {
