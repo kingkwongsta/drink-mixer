@@ -84,6 +84,7 @@ export async function createImage(response, userLiquor) {
     prompt: modifiedPrompt,
     negative_prompt:
       "Blurry photo, distortion, low-res, poor quality, multiple cocktail glasses",
+    checkpoint: "octoai:lightning_sdxl",
     loras: {
       "octoai:paint-splash": 0.5,
     },
