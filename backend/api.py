@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-import os
+from cocktail import generate_cocktail_recipe
 
 app = FastAPI()
 
@@ -24,8 +24,7 @@ async def testing():
 async def more():
     return {"1 + 1 = 3"}
 
-from cocktail import generate_cocktail_recipe
-
 @app.get("/cocktail")
 async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
     return generate_cocktail_recipe(liquor, flavor, mood)
+

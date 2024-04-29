@@ -9,12 +9,12 @@ key = os.getenv("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 
-data = {
-    "col1": "9999",
-    "col2" : "999999"
-}
-response2 = supabase.table("Test").insert(data).execute()
-print(response2)
+# data = {
+#     "col1": "9999",
+#     "col2" : "999999"
+# }
+# response2 = supabase.table("Test").insert(data).execute()
+# print(response2)
 
 
 
