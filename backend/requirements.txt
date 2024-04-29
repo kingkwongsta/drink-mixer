@@ -5,3 +5,4 @@ octoai-sdk
 nltk
 pydantic
 gunicorn
+supabase
