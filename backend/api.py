@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from cocktail import generate_cocktail_recipe
+from db import get_all
+
 
 app = FastAPI()
 
@@ -28,3 +30,6 @@ async def more():
 async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
     return generate_cocktail_recipe(liquor, flavor, mood)
 
+@app.get("/test_all")
+async def test_all():
+    return get_all()

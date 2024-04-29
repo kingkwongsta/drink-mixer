@@ -17,6 +17,6 @@ supabase = create_client(url, key)
 # print(response2)
 
 
-
-response = supabase.table('Test').select("*").execute()
-print(response)
+def get_all():
+    response = supabase.table('Test').select("*").execute()
+    return response
