@@ -1,12 +1,22 @@
-
 import os
+from dotenv import load_dotenv
 from supabase import create_client, Client
 
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+load_dotenv()
 
-response = supabase.table('test').select("*").execute()
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase = create_client(url, key)
 
 
+data = {
+    "col1": "9999",
+    "col2" : "999999"
+}
+response2 = supabase.table("Test").insert(data).execute()
+print(response2)
+
+
+
+response = supabase.table('Test').select("*").execute()
 print(response)
