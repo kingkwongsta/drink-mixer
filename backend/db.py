@@ -20,3 +20,14 @@ supabase = create_client(url, key)
 def get_all():
     response = supabase.table('Test').select("*").execute()
     return response
+
+def add_recipe(data):
+    response = supabase.table("drink_recipes").insert(data).execute()
+    print(response)
+    
+# data = supabase.table("drink_recipes").insert({
+#         "user_flavor=": "342",
+#         "user_mood=": "222",
+#         "user_liquor=": "5611",
+#     }).execute()
+# print(data)
