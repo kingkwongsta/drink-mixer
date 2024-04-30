@@ -7,8 +7,15 @@ import LoadingIcon from "./LoadingIcon";
 
 export default function GenerateRecipe() {
   const [isLoading, setIsLoading] = useState(false);
-  const { setDrinkRecipe, userFlavor, userLiquor, userMood, setDrinkImage } =
-    userStore();
+  const {
+    setDrinkRecipe,
+    userFlavor,
+    userLiquor,
+    userMood,
+    setDrinkImage,
+    drinkRecipe,
+    drinkImage,
+  } = userStore();
   const fetchData = async () => {
     const queryString = new URLSearchParams({
       liquor: userLiquor,

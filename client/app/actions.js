@@ -111,3 +111,37 @@ export async function createImage(response, userLiquor) {
 
   return images;
 }
+
+export async function storeRecipe(
+  userFlavor,
+  userLiquor,
+  userMood,
+  drinkRecipe,
+  drinkImage
+) {
+  const data = {
+    user_flavor: userFlavor,
+    user_mood: userMood,
+    user_liquor: userLiquor,
+    drink_recipe: drinkRecipe,
+    drink_image: drinkImage,
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/add_recipe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+    const data2 = await response.json();
+    return data2;
+  } catch (error) {
+    console.error("Error storing recipe:", error);
+    return { error: "Failed to store recipe. Please try again." };
+  }
+}
