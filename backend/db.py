@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from supabase import create_client, Client
+from pydantic import BaseModel
+from typing import List, Dict
 
 load_dotenv()
 
@@ -21,8 +23,35 @@ def get_all():
     response = supabase.table('Test').select("*").execute()
     return response
 
-def add_recipe(data):
-    drink_recipe_data = data.drink_recipe.dict()
+class IngredientItem(BaseModel):
+    name: str
+    quantity: str
+
+class DrinkRecipe(BaseModel):
+    name: str
+    description: str
+    ingredients: List[IngredientItem]
+    instructions: List[str]
+
+class Drink(BaseModel):
+    user_flavor: str
+    user_mood: str
+    user_liquor: str
+    drink_recipe: DrinkRecipe
+
+def add_recipe(data: Drink):
+    drink_recipe_data = [
+        {
+            "name": data.drink_recipe.name,
+            "description": data.drink_recipe.description,
+            "ingredients": [
+                {"name": ingredient.name, "quantity": ingredient.quantity}
+                for ingredient in data.drink_recipe.ingredients
+            ],
+            "instructions": data.drink_recipe.instructions,
+        }
+    ]
+
     response = supabase.table("drink_recipes").insert({
         "user_flavor": data.user_flavor,
         "user_mood": data.user_mood,
@@ -31,5 +60,4 @@ def add_recipe(data):
     }).execute()
     print("data successfully added")
     print(response)
-    
     
