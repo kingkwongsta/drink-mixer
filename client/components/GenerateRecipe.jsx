@@ -1,14 +1,21 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import userStore from "@/lib/userStore";
-import { useState } from "react";
-import { createImage } from "@/app/actions";
+import { useState, useEffect } from "react";
+import { createImage, storeRecipe } from "@/app/actions";
 import LoadingIcon from "./LoadingIcon";
 
 export default function GenerateRecipe() {
   const [isLoading, setIsLoading] = useState(false);
-  const { setDrinkRecipe, userFlavor, userLiquor, userMood, setDrinkImage } =
-    userStore();
+  const {
+    setDrinkRecipe,
+    userFlavor,
+    userLiquor,
+    userMood,
+    setDrinkImage,
+    drinkRecipe,
+    drinkImage,
+  } = userStore();
   const fetchData = async () => {
     const queryString = new URLSearchParams({
       liquor: userLiquor,
@@ -28,6 +35,7 @@ export default function GenerateRecipe() {
       const imageURL = `data:image/jpeg;base64,${imageResponse[0].imageData}`;
       setDrinkRecipe(data);
       setDrinkImage(imageURL);
+      storeRecipe(userFlavor, userLiquor, userMood, data, imageURL);
     }
 
     setIsLoading(false);

@@ -98,7 +98,7 @@ export async function createImage(response, userLiquor) {
     high_noise_frac: 0.8,
     style_preset: "Watercolor",
   };
-  console.log(modifiedPrompt);
+  console.log(`(">>>>>>>>>>>>>> image prompt: ${modifiedPrompt}`);
   const outputs = await client.infer(endpointUrl, inputs);
   const images = outputs.images.map((output, i) => {
     const buffer = Buffer.from(output.image_b64, "base64");
@@ -108,6 +108,42 @@ export async function createImage(response, userLiquor) {
       imageData,
     };
   });
-
+  console.log("********** image successfuly generated **********");
   return images;
+}
+
+export async function storeRecipe(
+  userFlavor,
+  userLiquor,
+  userMood,
+  drinkRecipe,
+  drinkImage
+) {
+  const data = {
+    user_flavor: userFlavor,
+    user_mood: userMood,
+    user_liquor: userLiquor,
+    drink_recipe: drinkRecipe,
+    drink_image: drinkImage,
+  };
+  try {
+    const response = await fetch("http://127.0.0.1:8000/add_recipe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+    const data2 = await response.json();
+    console.log(
+      "********** recipe successfully sent to api for storage **********"
+    );
+    return data2;
+  } catch (error) {
+    console.error("Error storing recipe:", error);
+    return { error: "Failed to store recipe. Please try again." };
+  }
 }

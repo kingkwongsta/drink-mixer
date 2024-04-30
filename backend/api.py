@@ -1,6 +1,16 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
+from models import Drink
+from cocktail import generate_cocktail_recipe
+from db import get_all, add_recipe
+
 import os
+from dotenv import load_dotenv
+from supabase import create_client, Client
+load_dotenv()
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase = create_client(url, key)
 
 app = FastAPI()
 
@@ -24,8 +34,15 @@ async def testing():
 async def more():
     return {"1 + 1 = 3"}
 
-from cocktail import generate_cocktail_recipe
-
 @app.get("/cocktail")
 async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
     return generate_cocktail_recipe(liquor, flavor, mood)
+
+@app.get("/test_all")
+async def test_all():
+    return get_all()
+
+@app.post("/add_recipe/")
+async def add_recipe_handler(data: Drink):
+    add_recipe(data)
+    
