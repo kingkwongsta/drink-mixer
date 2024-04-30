@@ -49,10 +49,6 @@ class Recipe(BaseModel):
 
 @app.post("/add_recipe/")
 async def add_recipe_handler(data: Recipe):
-    data = supabase.table("drink_recipes").insert({
-        "user_flavor": data.user_flavor,
-        "user_mood": data.user_mood,
-        "user_liquor": data.user_liquor,
-    }).execute()
+    add_recipe(data)
     
 # http://127.0.0.1:8000/add_recipe?user_flavor=sweet&user_liquor=gin&user_mood=happy
