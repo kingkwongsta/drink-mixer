@@ -22,10 +22,12 @@ def get_all():
     return response
 
 def add_recipe(data):
+    drink_recipe_data = data.drink_recipe.dict()
     response = supabase.table("drink_recipes").insert({
         "user_flavor": data.user_flavor,
         "user_mood": data.user_mood,
         "user_liquor": data.user_liquor,
+        "drink_recipe": drink_recipe_data,
     }).execute()
     print("data successfully added")
     print(response)
