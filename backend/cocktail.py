@@ -30,10 +30,10 @@ def generate_cocktail_recipe(liquor: str, flavor: str, mood: str) -> Recipe:
         endpoint_url=endpoint_url,
         octoai_api_token=octoai_api_token,
         model_kwargs={
-            "model": "mixtral-8x7b-instruct",
+            "model": "meta-llama-3-8b-instruct",
             "max_tokens": 2000,
             "presence_penalty": 0,
-            "temperature": 0.8,
+            "temperature": .8,
             "top_p": 0.9,
             "messages": [
                 {"role": "system", "content": "You are an expert mixologist that outputs JSON"}

@@ -20,9 +20,9 @@ export default function Home() {
         {!drinkRecipe && <GenerateRecipe />}
         <Transition>{drinkRecipe && <RecipeCard />}</Transition>
       </div>
-      <button onClick={() => console.log(drinkRecipe)}>get data</button>
+      {/* <button onClick={() => console.log(drinkRecipe)}>get data</button>
       <button onClick={() => console.log(drinkImage)}>get image</button>
-      <StoreData />
+      <StoreData /> */}
     </main>
   );
 }
