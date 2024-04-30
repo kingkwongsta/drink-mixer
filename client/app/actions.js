@@ -126,9 +126,6 @@ export async function storeRecipe(
     drink_recipe: drinkRecipe,
     drink_image: drinkImage,
   };
-  console.log("******************");
-  console.log(data);
-  console.log("******************");
   try {
     const response = await fetch("http://127.0.0.1:8000/add_recipe", {
       method: "POST",

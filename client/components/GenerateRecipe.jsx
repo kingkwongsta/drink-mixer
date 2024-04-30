@@ -35,15 +35,23 @@ export default function GenerateRecipe() {
       const imageURL = `data:image/jpeg;base64,${imageResponse[0].imageData}`;
       setDrinkRecipe(data);
       setDrinkImage(imageURL);
+      storeRecipe(userFlavor, userLiquor, userMood, data, imageURL);
     }
 
     setIsLoading(false);
   };
-  useEffect(() => {
-    if (drinkImage) {
-      storeRecipe(userFlavor, userLiquor, userMood, drinkRecipe, drinkImage);
-    }
-  }, [drinkImage]);
+  // useEffect(() => {
+  //   const handleImageUpdate = async () => {
+  //     if (drinkImage) {
+  //       console.log("use effect ran, store data");
+  //       storeRecipe(userFlavor, userLiquor, userMood, drinkRecipe, drinkImage);
+  //     }
+  //   };
+
+  //   handleImageUpdate(); // Call the function initially
+
+  //   return () => handleImageUpdate(); // Cleanup function for potential future changes
+  // }, [drinkImage]);
   return (
     <>
       <form action={fetchData}>
