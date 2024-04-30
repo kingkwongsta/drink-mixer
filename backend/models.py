@@ -16,3 +16,4 @@ class Drink(BaseModel):
     user_mood: str
     user_liquor: str
     drink_recipe: DrinkRecipe
+    drink_image: str

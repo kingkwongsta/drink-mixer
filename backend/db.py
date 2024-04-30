@@ -31,6 +31,8 @@ def add_recipe(data: Drink):
         "user_mood": data.user_mood,
         "user_liquor": data.user_liquor,
         "drink_recipe": drink_recipe_data,
+        # "drink_recipe": data.drink_recipe,
+        "drink_image": data.drink_image
     }).execute()
     print("data successfully added")
     print(response)
