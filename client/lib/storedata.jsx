@@ -22,15 +22,18 @@ export default function StoreData() {
         },
         body: JSON.stringify(data),
       });
-      const data = await response.json();
-      console.log(data);
+      const data2 = await response.json();
+      console.log(data2);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <button onClick={handleSubmit} className="border-2 border-cyan-300 m-5 p-4">
+    <button
+      onClick={handleSubmit}
+      className="border-2 border-cyan-300 m-5 p-4 text-3xl"
+    >
       Store the Data
     </button>
   );
