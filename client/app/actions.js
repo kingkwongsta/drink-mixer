@@ -108,7 +108,7 @@ export async function createImage(response, userLiquor) {
       imageData,
     };
   });
-  console.log(">>>>>>>>>>>>>> image successfuly generated");
+  console.log("********** image successfuly generated **********");
   return images;
 }
 
@@ -138,7 +138,9 @@ export async function storeRecipe(
       throw new Error(`API request failed with status: ${response.status}`);
     }
     const data2 = await response.json();
-    console.log(">>>>>>>>>>>>>> recipe successfully sent to api for storage");
+    console.log(
+      "********** recipe successfully sent to api for storage **********"
+    );
     return data2;
   } catch (error) {
     console.error("Error storing recipe:", error);

@@ -34,5 +34,5 @@ def add_recipe(data: Drink):
         # "drink_recipe": data.drink_recipe,
         "drink_image": data.drink_image
     }).execute()
-    print("data successfully added to table")
+    print("********** data successfully added to table **********")
     

@@ -56,4 +56,5 @@ def generate_cocktail_recipe(liquor: str, flavor: str, mood: str) -> Recipe:
     chain = prompt | model | parser
 
     response = chain.invoke({"query": recipe_query})
+    print("********** drink recipe successfully genereated **********")
     return response
