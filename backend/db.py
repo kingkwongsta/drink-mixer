@@ -1,8 +1,7 @@
 import os
 from dotenv import load_dotenv
 from supabase import create_client
-from pydantic import BaseModel
-from typing import List
+from models import Drink
 
 load_dotenv()
 
@@ -13,22 +12,6 @@ supabase = create_client(url, key)
 def get_all():
     response = supabase.table('Test').select("*").execute()
     return response
-
-class IngredientItem(BaseModel):
-    name: str
-    quantity: str
-
-class DrinkRecipe(BaseModel):
-    name: str
-    description: str
-    ingredients: List[IngredientItem]
-    instructions: List[str]
-
-class Drink(BaseModel):
-    user_flavor: str
-    user_mood: str
-    user_liquor: str
-    drink_recipe: DrinkRecipe
 
 def add_recipe(data: Drink):
     drink_recipe_data = [

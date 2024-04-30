@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Dict
+from models import Drink
 from cocktail import generate_cocktail_recipe
 from db import get_all, add_recipe
 
@@ -42,23 +41,6 @@ async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(de
 @app.get("/test_all")
 async def test_all():
     return get_all()
-
-class IngredientItem(BaseModel):
-    name: str
-    quantity: str
-
-class DrinkRecipe(BaseModel):
-    name: str
-    description: str
-    ingredients: List[IngredientItem]
-    instructions: List[str]
-
-class Drink(BaseModel):
-    user_flavor: str
-    user_mood: str
-    user_liquor: str
-    drink_recipe: DrinkRecipe
-    
 
 @app.post("/add_recipe/")
 async def add_recipe_handler(data: Drink):
