@@ -1,8 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import userStore from "@/lib/userStore";
-import { useState } from "react";
-import { createImage } from "@/app/actions";
+import { useState, useEffect } from "react";
+import { createImage, storeRecipe } from "@/app/actions";
 import LoadingIcon from "./LoadingIcon";
 
 export default function GenerateRecipe() {
@@ -39,6 +39,11 @@ export default function GenerateRecipe() {
 
     setIsLoading(false);
   };
+  useEffect(() => {
+    if (drinkImage) {
+      storeRecipe(userFlavor, userLiquor, userMood, drinkRecipe, drinkImage);
+    }
+  }, [drinkImage]);
   return (
     <>
       <form action={fetchData}>
