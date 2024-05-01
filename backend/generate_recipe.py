@@ -3,6 +3,7 @@ from octoai.chat import TextModel, ChatCompletionResponseFormat
 from models import DrinkRecipe
 import os
 from dotenv import load_dotenv
+import json
 
 def create_recipe(liquor, flavor, mood):
     load_dotenv()
@@ -28,6 +29,6 @@ def create_recipe(liquor, flavor, mood):
     )
 
     print("********** drink recipe successfully genereated **********")
-    return completion.choices[0].message.content
+    cleaned_response = json.dumps(json.loads(completion.choices[0].message.content), ensure_ascii=False)
 
-create_recipe("vodka","sweet","happy")
+    return completion.choices[0].message.content

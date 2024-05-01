@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from models import Drink
 from cocktail import generate_cocktail_recipe
+from generate_recipe import create_recipe
 from db import get_all, add_recipe
 
 import os
@@ -42,7 +43,7 @@ async def more():
 #Just Octoai API
 @app.get("/cocktail")
 async def get_cocktail(liquor, flavor, mood):
-    return generate_cocktail_recipe(liquor, flavor, mood)
+    return create_recipe(liquor, flavor, mood)
 
 @app.get("/test_all")
 async def test_all():
