@@ -7,15 +7,8 @@ import LoadingIcon from "./LoadingIcon";
 
 export default function GenerateRecipe() {
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    setDrinkRecipe,
-    userFlavor,
-    userLiquor,
-    userMood,
-    setDrinkImage,
-    drinkRecipe,
-    drinkImage,
-  } = userStore();
+  const { setDrinkRecipe, userFlavor, userLiquor, userMood, setDrinkImage } =
+    userStore();
   const fetchData = async () => {
     const queryString = new URLSearchParams({
       liquor: userLiquor,
@@ -52,14 +45,6 @@ export default function GenerateRecipe() {
         </Button>
       </form>
       {isLoading && <LoadingIcon />}
-      {/* <button
-        onClick={() => {
-          console.log(drinkRecipe);
-        }}
-        className="border-2 border-cyan-500"
-      >
-        Get Recipe
-      </button> */}
     </>
   );
 }
