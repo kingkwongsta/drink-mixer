@@ -34,8 +34,14 @@ async def testing():
 async def more():
     return {"1 + 1 = 3"}
 
+#langchain
+# @app.get("/cocktail")
+# async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
+#     return generate_cocktail_recipe(liquor, flavor, mood)
+
+#Just Octoai API
 @app.get("/cocktail")
-async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
+async def get_cocktail(liquor, flavor, mood):
     return generate_cocktail_recipe(liquor, flavor, mood)
 
 @app.get("/test_all")
