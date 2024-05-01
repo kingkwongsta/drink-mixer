@@ -2,12 +2,20 @@
 const nextConfig = {
   rewrites: async () => [
     {
-      source: "/cocktail", // Matches requests to /cocktail
-      destination: "http://127.0.0.1:8000/cocktail", // Forward to backend URL
+      source: "/cocktail",
+      destination: "http://127.0.0.1:8000/cocktail",
     },
     {
-      source: "/cocktail", // Matches requests to /cocktail
-      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/cocktail", // Forward to backend URL
+      source: "/cocktail",
+      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/cocktail",
+    },
+    {
+      source: "/add_recipe",
+      destination: "http://127.0.0.1:8000/add_recipe",
+    },
+    {
+      source: "/add_recipe",
+      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/add_recipe/",
     },
   ],
   async headers() {
