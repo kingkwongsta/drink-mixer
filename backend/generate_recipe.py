@@ -30,4 +30,4 @@ def create_recipe(liquor, flavor, mood):
     print("********** drink recipe successfully genereated **********")
     return completion.choices[0].message.content
 
-# create_recipe("vodka","sweet","happy")
+create_recipe("vodka","sweet","happy")
