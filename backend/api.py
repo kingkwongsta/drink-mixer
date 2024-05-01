@@ -4,6 +4,8 @@ from models import Drink
 from cocktail import generate_cocktail_recipe
 from generate_recipe import create_recipe
 from db import get_all, add_recipe
+import json
+
 
 import os
 from dotenv import load_dotenv
@@ -42,8 +44,9 @@ async def more():
 
 #Just Octoai API
 @app.get("/cocktail")
-async def get_cocktail(liquor, flavor, mood):
-    return create_recipe(liquor, flavor, mood)
+async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
+    recipe_json = json.loads(create_recipe(liquor, flavor, mood))
+    return recipe_json
 
 @app.get("/test_all")
 async def test_all():

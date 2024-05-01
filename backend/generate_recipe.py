@@ -29,6 +29,4 @@ def create_recipe(liquor, flavor, mood):
     )
 
     print("********** drink recipe successfully genereated **********")
-    cleaned_response = json.dumps(json.loads(completion.choices[0].message.content), ensure_ascii=False)
-
     return completion.choices[0].message.content
