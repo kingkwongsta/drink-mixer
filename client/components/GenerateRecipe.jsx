@@ -17,7 +17,7 @@ export default function GenerateRecipe() {
     });
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `https://march28-2twnlcizjq-wl.a.run.app/cocktail?${queryString}`
+        ? `https://cocktail-may1-2twnlcizjq-wl.a.run.app/cocktail?${queryString}`
         : `/cocktail?${queryString}`;
 
     const url = `${baseUrl}?${queryString}`;

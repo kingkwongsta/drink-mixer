@@ -7,7 +7,7 @@ const nextConfig = {
     },
     {
       source: "/cocktail", // Matches requests to /cocktail
-      destination: "https://march28-2twnlcizjq-wl.a.run.app/cocktail", // Forward to backend URL
+      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/cocktail", // Forward to backend URL
     },
   ],
   async headers() {
