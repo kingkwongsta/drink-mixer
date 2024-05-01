@@ -127,7 +127,11 @@ export async function storeRecipe(
     drink_image: drinkImage,
   };
   try {
-    const response = await fetch("http://127.0.0.1:8000/add_recipe", {
+    const api_url =
+      process.env.NODE_ENV === "production"
+        ? `https://cocktail-may1-2twnlcizjq-wl.a.run.app/add_recipe`
+        : `http://127.0.0.1:8000/add_recipe`;
+    const response = await fetch(api_url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
