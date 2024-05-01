@@ -1,6 +1,9 @@
 # pip install python-dotenv langchain "fastapi[all]" octoai-sdk 
 # .venv\Scripts\Activate.ps1
 # uvicorn main:app --reload
+# .venv\Scripts\Activate.ps1; cd backend; uvicorn main:app --reload
+
+
 
 import uvicorn
 from os import getenv
