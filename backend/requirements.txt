@@ -6,3 +6,4 @@ nltk
 pydantic
 gunicorn
 supabase
+google-generativeai
