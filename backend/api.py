@@ -57,6 +57,6 @@ async def test_all():
 async def add_recipe_handler(data: Drink):
     add_recipe(data)
 
-@app.get("/gem")
+@app.get("/gemini")
 async def gem_test():
     return test()
