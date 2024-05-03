@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from models import Drink
-from cocktail import generate_cocktail_recipe
+# from cocktail import generate_cocktail_recipe
 from generate_recipe import create_recipe
 from db import get_all, add_recipe
+from gem import test
 import json
 
 
@@ -55,4 +56,7 @@ async def test_all():
 @app.post("/add_recipe/")
 async def add_recipe_handler(data: Drink):
     add_recipe(data)
-    
+
+@app.get("/gem")
+async def gem_test():
+    return test()
