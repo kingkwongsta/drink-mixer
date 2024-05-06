@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import Drink
 from cocktail import generate_cocktail_recipe
 from generate_recipe import create_recipe
-from db import get_latest, add_recipe
+from db import get_latest, add_recipe, upload
 import json
 
 
@@ -55,4 +55,7 @@ async def latest_recipes_handler():
 @app.post("/add_recipe/")
 async def add_recipe_handler(data: Drink):
     add_recipe(data)
-    
+
+@app.get("/upload")
+async def upload_handler():
+    upload()
