@@ -48,8 +48,8 @@ async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(de
     recipe_json = json.loads(create_recipe(liquor, flavor, mood))
     return recipe_json
 
-@app.get("/all_recipes")
-async def all_recipes_handler():
+@app.get("/latest_recipes")
+async def latest_recipes_handler():
     return get_latest()
 
 @app.post("/add_recipe/")
