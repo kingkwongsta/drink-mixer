@@ -1,4 +1,4 @@
-// TEST COMPONENT TO STORE COCKTAIL RECIPE
+// EXPERIMENT COMPONENT TO GET LATEST RECIPES
 "use client";
 import userStore from "./userStore";
 

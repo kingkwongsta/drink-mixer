@@ -6,18 +6,15 @@ const userStore = create((set) => ({
   userMood: "Celebratory",
   drinkRecipe: "",
   drinkImage: "",
-  questionIndex: 0,
+  storedRecipes: [],
   setUserFlavor: (flavor) => set((state) => ({ ...state, userFlavor: flavor })),
   setUserLiquor: (liquor) => set((state) => ({ ...state, userLiquor: liquor })),
   setUserMood: (mood) => set((state) => ({ ...state, userMood: mood })),
   setDrinkRecipe: (recipe) =>
     set((state) => ({ ...state, drinkRecipe: recipe })),
   setDrinkImage: (image) => set((state) => ({ ...state, drinkImage: image })),
-  setQuestionIndex: (amount) =>
-    set((state) => ({
-      ...state,
-      questionIndex: state.questionIndex + amount,
-    })),
+  setStoredRecipes: (data) =>
+    set((state) => ({ ...state, storedRecipes: data })),
 }));
 
 export default userStore;
