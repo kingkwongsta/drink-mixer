@@ -3,8 +3,6 @@
 # uvicorn main:app --reload
 # .venv\Scripts\Activate.ps1; cd backend; uvicorn main:app --reload
 
-
-
 import uvicorn
 from os import getenv
 from api import app
