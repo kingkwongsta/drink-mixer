@@ -7,6 +7,7 @@ import userStore from "@/lib/userStore";
 import Transition from "@/lib/transition";
 import { useState } from "react";
 import StoreData from "./../lib/storedata";
+import Latest from "./../lib/exp_latest";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ export default function Home() {
       {/* <button onClick={() => console.log(drinkRecipe)}>get data</button>
       <button onClick={() => console.log(drinkImage)}>get image</button>
       <StoreData /> */}
+      <Latest />
     </main>
   );
 }

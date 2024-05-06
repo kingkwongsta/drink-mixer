@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import userStore from "./userStore";
 
-export default function StoreData() {
-  const { storeRecipes, setStoreRecipes } = userStore();
+export default function Latest() {
+  const { storeRecipes, setStoredRecipes } = userStore();
   const getLatest = async () => {
     try {
       const response = await fetch("http://127.0.0.1:8000/latest_recipes", {
@@ -12,10 +12,11 @@ export default function StoreData() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
       });
-      const data2 = await response.json();
-      setStoreRecipes(data2);
+      const data = await response.json();
+      setStoredRecipes(data.data, () => {
+        console.log(storeRecipes);
+      });
     } catch (error) {
       console.error(error);
     }

@@ -6,7 +6,7 @@ const userStore = create((set) => ({
   userMood: "Celebratory",
   drinkRecipe: "",
   drinkImage: "",
-  storedRecipes: [],
+  storedRecipes: {},
   setUserFlavor: (flavor) => set((state) => ({ ...state, userFlavor: flavor })),
   setUserLiquor: (liquor) => set((state) => ({ ...state, userLiquor: liquor })),
   setUserMood: (mood) => set((state) => ({ ...state, userMood: mood })),
