@@ -6,7 +6,6 @@ import RecipeCard from "@/components/RecipeCard";
 import userStore from "@/lib/userStore";
 import Transition from "@/lib/transition";
 import { useState } from "react";
-import StoreData from "./../lib/storedata";
 import Latest from "./../lib/exp_latest";
 
 export default function Home() {

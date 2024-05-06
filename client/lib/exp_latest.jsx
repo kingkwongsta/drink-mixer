@@ -1,13 +1,12 @@
 // EXPERIMENT COMPONENT TO GET LATEST RECIPES
 "use client";
 import { useEffect } from "react";
-import userStore from "./userStore";
+import userStore from "@/lib/userStore";
 
 export default function Latest() {
-  const { storeRecipes, setStoredRecipes } = userStore();
+  const { storedRecipes, setStoredRecipes } = userStore();
 
   const getLatest = async () => {
-    console.log("in getLatest");
     try {
       const response = await fetch("http://127.0.0.1:8000/latest_recipes", {
         method: "GET",
@@ -17,10 +16,9 @@ export default function Latest() {
       });
       const data = await response.json();
       console.log(data);
-      setStoredRecipes(data, () => {
-        // Log the updated value of storeRecipes after the state has been updated
-        console.log(storeRecipes);
-      });
+      if (data) {
+        setStoredRecipes(data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -28,16 +26,11 @@ export default function Latest() {
 
   // Call getLatest only once on component mount
   useEffect(() => {
-    console.log("in the use EFFECT");
     getLatest();
   }, []);
 
   const handleClick = async () => {
-    if (!storeRecipes) {
-      console.log("Recipes are still loading...");
-      return; // Prevent unnecessary processing
-    }
-    // No need to log storeRecipes here since it's already logged in getLatest
+    console.log(storedRecipes);
   };
 
   return (
