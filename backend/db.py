@@ -11,7 +11,7 @@ supabase = create_client(url, key)
 
 def get_latest():
   response = supabase.table("drink_recipes").select("*").order("created_at", desc=True).limit(9).execute()
-  return response
+  return response.data
 
 def add_recipe(data: Drink):
     drink_recipe_data = [
