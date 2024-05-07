@@ -9,20 +9,20 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function RecipeCard(drinkRecipe) {
+export default function LatestCard(drinkRecipe) {
   return (
     <Card className="w-full max-w-2xl">
       <CardHeader className="px-6 pt-6 pb-4 text-center">
         <CardTitle className="text-3xl font-bold">{drinkRecipe.name}</CardTitle>
         <CardDescription>{drinkRecipe.description}</CardDescription>
       </CardHeader>
-      <Image
+      {/* <Image
         alt={drinkRecipe.name}
         className="object-cover my-2"
         height="600"
         src={drinkImage}
         width="1200"
-      />
+      /> */}
       <div className="flex flex-col sm:flex-row mt-6">
         <CardContent className="">
           <div className="items-center gap-4">
@@ -49,16 +49,6 @@ export default function RecipeCard(drinkRecipe) {
           </div>
         </CardContent>
       </div>
-      <CardFooter className="flex justify-center gap-2">
-        <Button
-          className="mt-4"
-          onClick={() => {
-            setDrinkRecipe("");
-          }}
-        >
-          Start Over
-        </Button>
-      </CardFooter>
     </Card>
   );
 }

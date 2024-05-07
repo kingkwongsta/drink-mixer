@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import userStore from "@/lib/userStore";
-import RecipeCard from "./RecipeCard";
+import LatestCard from "@/components/LatestCard";
 
 export default function LatestRecipes() {
   const { storedRecipes, setStoredRecipes } = userStore();
@@ -29,6 +29,8 @@ export default function LatestRecipes() {
   const handleClick = async () => {
     console.log(storedRecipes);
   };
+
+  function renderRecipes() {}
 
   return (
     <button
