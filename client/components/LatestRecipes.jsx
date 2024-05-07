@@ -42,12 +42,12 @@ export default function LatestRecipes() {
 
   return (
     <>
-      <button
+      {/* <button
         onClick={handleClick}
         className="border-2 border-cyan-300 m-5 p-4 text-3xl"
       >
         Get Me Latest
-      </button>
+      </button> */}
       {storedRecipes && renderRecipes()}
     </>
   );
