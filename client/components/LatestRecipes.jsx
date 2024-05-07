@@ -31,9 +31,13 @@ export default function LatestRecipes() {
   };
 
   function renderRecipes() {
-    return storedRecipes.map((drink) => {
-      return LatestCard(drink.drink_recipe[0], drink.drink_image);
-    });
+    return (
+      <div className="grid grid-cols-3 gap-4">
+        {storedRecipes.map((drink) => {
+          return LatestCard(drink.drink_recipe[0], drink.drink_image);
+        })}
+      </div>
+    );
   }
 
   return (
