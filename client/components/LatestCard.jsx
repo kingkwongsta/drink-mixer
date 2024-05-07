@@ -45,14 +45,16 @@ export default function LatestCard(drinkRecipe, drinkImage) {
           </div>
         </Card>
       </DialogTrigger>
-      <DialogContent className="">
+      <DialogContent className="min-w-[600px]">
         <RecipeCard drinkRecipe={drinkRecipe} drinkImage={drinkImage} />
       </DialogContent>
     </Dialog>
   );
 }
 
-function RecipeCard(drinkRecipe, drinkImage) {
+function RecipeCard(props) {
+  const { drinkRecipe, drinkImage } = props;
+
   return (
     <Card className="w-full max-w-2xl">
       <CardHeader className="px-6 pt-6 pb-4 text-center">
@@ -66,7 +68,7 @@ function RecipeCard(drinkRecipe, drinkImage) {
         src={drinkImage}
         width="1200"
       />
-      {/* <div className="flex flex-col sm:flex-row mt-6">
+      <div className="flex flex-col sm:flex-row mt-6">
         <CardContent className="">
           <div className="items-center gap-4">
             <h3 className="text-sm font-semibold mb-1">Ingredients</h3>
@@ -91,7 +93,7 @@ function RecipeCard(drinkRecipe, drinkImage) {
             </ul>
           </div>
         </CardContent>
-      </div> */}
+      </div>
     </Card>
   );
 }
