@@ -30,14 +30,21 @@ export default function LatestRecipes() {
     console.log(storedRecipes);
   };
 
-  function renderRecipes() {}
+  function renderRecipes() {
+    return storedRecipes.map((drink) => {
+      return LatestCard(drink.drink_recipe[0], drink.drink_image);
+    });
+  }
 
   return (
-    <button
-      onClick={handleClick}
-      className="border-2 border-cyan-300 m-5 p-4 text-3xl"
-    >
-      Get Me Latest
-    </button>
+    <>
+      <button
+        onClick={handleClick}
+        className="border-2 border-cyan-300 m-5 p-4 text-3xl"
+      >
+        Get Me Latest
+      </button>
+      {storedRecipes && renderRecipes()}
+    </>
   );
 }
