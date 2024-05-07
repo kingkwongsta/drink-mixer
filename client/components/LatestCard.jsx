@@ -16,16 +16,15 @@ export default function LatestCard(drinkRecipe, drinkImage) {
     : "";
 
   return (
-    // <Card className="max-md:w-full max-md:max-w-2xl border-2 border-solid border-gray-800">
     <Card className="border-2 border-solid border-gray-800 sm:w-full">
-      <CardHeader className="px-6 pt-6 pb-4 text-center">
+      <CardHeader className="px-6 pt-6 pb-2 text-center">
         <CardTitle className="text-xl font-bold">{drinkRecipe.name}</CardTitle>
         <CardDescription>{trimmedDescription}</CardDescription>
       </CardHeader>
-      <div className="sm-max-w-[200px]">
+      <div className="mx-auto max-md:max-w-[300px]">
         <Image
           alt={drinkRecipe.name}
-          className="my-2 bg-cover max-w-full"
+          className="my-2 bg-center"
           height="600"
           src={drinkImage}
           width="1200"
