@@ -27,19 +27,6 @@ def get_latest():
     return response.data
 
 def add_recipe(data: Drink):
-    # Extract the Base64-encoded image data
-    drink_image_base64 = data.drink_image
-
-    # Upload the image to Supabase Storage
-    try:
-        image_file = base64.b64decode(drink_image_base64)
-        file_path = f"{data.drink_recipe.name.replace(' ', '_')}.jpg"
-        supabase_file = supabase.storage.from_("drink_images").upload(file_path, image_file, content_type="image/jpeg")
-        drink_image_url = f"{url}/storage/v1/object/public/{supabase_file.data.Key}"
-    except Exception as e:
-        print(f"Error uploading image: {e}")
-        drink_image_url = None
-
     drink_recipe_data = [
         {
             "name": data.drink_recipe.name,
@@ -57,7 +44,7 @@ def add_recipe(data: Drink):
         "user_mood": data.user_mood,
         "user_liquor": data.user_liquor,
         "drink_recipe": drink_recipe_data,
-        "drink_image": drink_image_url
+        "drink_image": data.drink_image
     }).execute()
 
     print("***** data successfully added to table *****")
