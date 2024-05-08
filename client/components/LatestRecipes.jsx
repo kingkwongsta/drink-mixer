@@ -33,9 +33,11 @@ export default function LatestRecipes() {
   function renderRecipes() {
     return (
       <div className="grid sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-7">
-        {storedRecipes.map((drink) => {
-          return LatestCard(drink.drink_recipe[0], drink.drink_image);
-        })}
+        {storedRecipes.map(
+          (drink) =>
+            drink.drink_image &&
+            LatestCard(drink.drink_recipe[0], drink.drink_image)
+        )}
       </div>
     );
   }
