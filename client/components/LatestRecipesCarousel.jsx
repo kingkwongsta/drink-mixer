@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function LatestRecipesAccordian() {
+export default function LatestRecipesCarousel() {
   const { storedRecipes, setStoredRecipes } = userStore();
   const getLatest = async () => {
     try {
@@ -43,7 +43,8 @@ export default function LatestRecipesAccordian() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <h3>HELLO</h3>
+                  {drink.drink_image &&
+                    LatestCard(drink.drink_recipe[0], drink.drink_image)}
                 </CardContent>
               </Card>
             </div>

@@ -6,7 +6,7 @@ import RecipeCard from "@/components/RecipeCard";
 import userStore from "@/lib/userStore";
 import Transition from "@/lib/transition";
 import LatestRecipesBlog from "@/components/LatestRecipesBlog";
-import LatestRecipesAccordian from "@/components/LatestRecipesAccordian";
+import LatestRecipesCarousel from "@/components/LatestRecipesCarousel";
 import { useState } from "react";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       <button onClick={() => console.log(drinkImage)}>get image</button>
       <StoreData /> */}
       {/* <LatestRecipesBlog /> */}
-      <LatestRecipesAccordian />
+      <LatestRecipesCarousel />
     </main>
   );
 }
