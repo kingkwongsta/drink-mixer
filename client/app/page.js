@@ -5,7 +5,8 @@ import GenerateRecipe from "@/components/GenerateRecipe";
 import RecipeCard from "@/components/RecipeCard";
 import userStore from "@/lib/userStore";
 import Transition from "@/lib/transition";
-import LatestRecipes from "@/components/LatestRecipes";
+import LatestRecipesBlog from "@/components/LatestRecipesBlog";
+import LatestRecipesAccordian from "@/components/LatestRecipesAccordian";
 import { useState } from "react";
 
 export default function Home() {
@@ -23,7 +24,8 @@ export default function Home() {
       {/* <button onClick={() => console.log(drinkRecipe)}>get data</button>
       <button onClick={() => console.log(drinkImage)}>get image</button>
       <StoreData /> */}
-      <LatestRecipes />
+      {/* <LatestRecipesBlog /> */}
+      <LatestRecipesAccordian />
     </main>
   );
 }

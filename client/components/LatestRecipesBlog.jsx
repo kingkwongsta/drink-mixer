@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import userStore from "@/lib/userStore";
 import LatestCard from "@/components/LatestCard";
 
-export default function LatestRecipes() {
+export default function LatestRecipesBlog() {
   const { storedRecipes, setStoredRecipes } = userStore();
   const getLatest = async () => {
     try {
