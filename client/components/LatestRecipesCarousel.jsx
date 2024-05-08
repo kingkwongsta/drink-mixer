@@ -53,14 +53,21 @@ export default function LatestRecipesCarousel() {
   }
 
   return (
-    <>
-      {storedRecipes && (
-        <Carousel opts={{ align: "start" }} className="w-full">
-          <CarouselContent>{renderRecipes()}</CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      )}
-    </>
+    <div className="mt-[80px]">
+      <div className="text-center">
+        <h2 className="text-2xl font-semibold tracking-tight">
+          Recently Created Recipes
+        </h2>
+      </div>
+      <div>
+        {storedRecipes && (
+          <Carousel opts={{ align: "start" }} className="w-full">
+            <CarouselContent className="">{renderRecipes()}</CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        )}
+      </div>
+    </div>
   );
 }
