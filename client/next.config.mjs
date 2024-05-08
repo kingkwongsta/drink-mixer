@@ -7,7 +7,7 @@ const nextConfig = {
     },
     {
       source: "/cocktail",
-      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/cocktail",
+      destination: "https://cocktail-may7-2twnlcizjq-wl.a.run.app/cocktail",
     },
     {
       source: "/add_recipe",
@@ -15,7 +15,7 @@ const nextConfig = {
     },
     {
       source: "/add_recipe",
-      destination: "https://cocktail-may1-2twnlcizjq-wl.a.run.app/add_recipe/",
+      destination: "https://cocktail-may7-2twnlcizjq-wl.a.run.app/add_recipe/",
     },
   ],
   async headers() {
