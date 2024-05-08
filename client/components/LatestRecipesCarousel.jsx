@@ -41,12 +41,10 @@ export default function LatestRecipesCarousel() {
         {storedRecipes.map((drink, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  {drink.drink_image &&
-                    LatestCard(drink.drink_recipe[0], drink.drink_image)}
-                </CardContent>
-              </Card>
+              <div className="flex aspect-square items-center justify-center p-6">
+                {drink.drink_image &&
+                  LatestCard(drink.drink_recipe[0], drink.drink_image)}
+              </div>
             </div>
           </CarouselItem>
         ))}
@@ -57,7 +55,7 @@ export default function LatestRecipesCarousel() {
   return (
     <>
       {storedRecipes && (
-        <Carousel opts={{ align: "start" }} className="w-full max-w-sm">
+        <Carousel opts={{ align: "start" }} className="w-full">
           <CarouselContent>{renderRecipes()}</CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
