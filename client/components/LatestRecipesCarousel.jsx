@@ -14,8 +14,12 @@ import {
 export default function LatestRecipesCarousel() {
   const { storedRecipes, setStoredRecipes } = userStore();
   const getLatest = async () => {
+    const api_url =
+      process.env.NODE_ENV === "production"
+        ? "https://cocktail-may7-2twnlcizjq-wl.a.run.app/latest_recipes/"
+        : "http://127.0.0.1:8000/latest_recipes";
     try {
-      const response = await fetch("http://127.0.0.1:8000/latest_recipes", {
+      const response = await fetch(api_url, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
