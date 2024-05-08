@@ -34,31 +34,34 @@ export default function LatestRecipesAccordian() {
   useEffect(() => {
     getLatest();
   }, []);
-  const handleClick = async () => {
-    console.log(storedRecipes);
-  };
 
   function renderRecipes() {
     return (
-      <div className="grid sm:gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-7">
-        {storedRecipes.map(
-          (drink) =>
-            drink.drink_image &&
-            LatestCard(drink.drink_recipe[0], drink.drink_image)
-        )}
-      </div>
+      <>
+        {storedRecipes.map((drink, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <h3>HELLO</h3>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </>
     );
   }
 
   return (
     <>
-      {/* <button
-        onClick={handleClick}
-        className="border-2 border-cyan-300 m-5 p-4 text-3xl"
-      >
-        Get Me Latest
-      </button> */}
-      {storedRecipes && renderRecipes()}
+      {storedRecipes && (
+        <Carousel opts={{ align: "start" }} className="w-full max-w-sm">
+          <CarouselContent>{renderRecipes()}</CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      )}
     </>
   );
 }
