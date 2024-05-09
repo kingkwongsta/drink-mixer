@@ -129,7 +129,7 @@ export async function storeRecipe(
   try {
     const api_url =
       process.env.NODE_ENV === "production"
-        ? `${process.env.NEXT_PUBLIC_GCP_BACKEND_CONTAINER}/add_recipe/`
+        ? `https://cocktail-may8-2twnlcizjq-wl.a.run.app/add_recipe/`
         : "http://127.0.0.1:8000/add_recipe";
     const response = await fetch(api_url, {
       method: "POST",
