@@ -56,7 +56,7 @@ function RecipeCard(props) {
   const { drinkRecipe, drinkImage } = props;
 
   return (
-    <Card className="max-w-2xl">
+    <div className="max-w-[425px]">
       <CardHeader className="px-6 pt-6 pb-4 text-center">
         <CardTitle className="text-3xl font-bold">{drinkRecipe.name}</CardTitle>
         <CardDescription>{drinkRecipe.description}</CardDescription>
@@ -94,6 +94,6 @@ function RecipeCard(props) {
           </div>
         </CardContent>
       </div>
-    </Card>
+    </div>
   );
 }
