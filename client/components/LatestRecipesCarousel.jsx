@@ -32,15 +32,15 @@ export default function LatestRecipesCarousel() {
   }
 
   return (
-    <div className="mt-[80px] px-12">
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold tracking-tight">
+    <div className="mt-[100px] mx-12">
+      <div className="text-left">
+        <h2 className="text-2xl font-semibold tracking-tight ml-5">
           Recently Created Recipes
         </h2>
       </div>
       <div>
         {storedRecipes && (
-          <Carousel opts={{ align: "start" }} className="w-full">
+          <Carousel opts={{ align: "start" }} className="w-full -mt-10">
             <CarouselContent className="">{renderRecipes()}</CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

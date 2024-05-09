@@ -46,7 +46,7 @@ export default function Home() {
         </div>
       </div>
       {/* <div className="border-t border-gray-800 w-full mt-20"></div> */}
-      <div className="bg-gray-200">
+      <div className="">
         <Transition>{storedRecipes && <LatestRecipesCarousel />}</Transition>
       </div>
     </main>
