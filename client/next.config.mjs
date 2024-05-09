@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // GCP_BACKEND_CONTAINER
+  env: {
+    API_URL: process.env.NEXT_PUBLIC_GCP_BACKEND_CONTAINER,
+  },
   rewrites: async () => [
     {
       source: "/cocktail",
@@ -7,7 +11,7 @@ const nextConfig = {
     },
     {
       source: "/cocktail",
-      destination: "https://cocktail-may7-2twnlcizjq-wl.a.run.app/cocktail",
+      destination: `${process.env.API_URL}/cocktail`,
     },
     {
       source: "/add_recipe",
@@ -15,7 +19,7 @@ const nextConfig = {
     },
     {
       source: "/add_recipe",
-      destination: "https://cocktail-may7-2twnlcizjq-wl.a.run.app/add_recipe/",
+      destination: `${process.env.API_URL}/add_recipe/`,
     },
   ],
   async headers() {
