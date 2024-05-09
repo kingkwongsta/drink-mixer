@@ -36,7 +36,7 @@ export default function Home() {
   }, [drinkRecipe]);
 
   return (
-    <main className="w-full px-12 py-12 md:py-24">
+    <main className="w-full py-12 md:py-24">
       <div className="space-y-20">
         <Title />
         <Dropdown />
@@ -45,8 +45,8 @@ export default function Home() {
           <Transition>{drinkRecipe && <RecipeCard />}</Transition>
         </div>
       </div>
-      <div className="border-t border-gray-800 w-full mt-20"></div>
-      <div>
+      {/* <div className="border-t border-gray-800 w-full mt-20"></div> */}
+      <div className="bg-gray-200">
         <Transition>{storedRecipes && <LatestRecipesCarousel />}</Transition>
       </div>
     </main>

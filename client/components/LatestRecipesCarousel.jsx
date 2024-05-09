@@ -32,7 +32,7 @@ export default function LatestRecipesCarousel() {
   }
 
   return (
-    <div className="mt-[80px]">
+    <div className="mt-[80px] px-12">
       <div className="text-center">
         <h2 className="text-2xl font-semibold tracking-tight">
           Recently Created Recipes
