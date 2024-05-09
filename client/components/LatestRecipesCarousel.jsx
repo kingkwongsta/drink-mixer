@@ -12,32 +12,7 @@ import {
 } from "@/components/ui/carousel";
 
 export default function LatestRecipesCarousel() {
-  const { storedRecipes, setStoredRecipes } = userStore();
-  const getLatest = async () => {
-    const api_url =
-      process.env.NODE_ENV === "production"
-        ? `https://cocktail-may8-2twnlcizjq-wl.a.run.app/latest_recipes/`
-        : "http://127.0.0.1:8000/latest_recipes";
-    try {
-      const response = await fetch(api_url, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
-      if (data) {
-        setStoredRecipes(data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // Call getLatest only once on component mount
-  useEffect(() => {
-    getLatest();
-  }, []);
+  const { storedRecipes } = userStore();
 
   function renderRecipes() {
     return (

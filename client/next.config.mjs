@@ -17,7 +17,10 @@ const nextConfig = {
       source: "/add_recipe",
       destination: `https://cocktail-may8-2twnlcizjq-wl.a.run.app/add_recipe/`,
     },
-
+    {
+      source: "/latest_recipes",
+      destination: `http://127.0.0.1:8000/latest_recipes/`,
+    },
     {
       source: "/latest_recipes",
       destination: `https://cocktail-may8-2twnlcizjq-wl.a.run.app/latest_recipes/`,
