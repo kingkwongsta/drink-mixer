@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import userStore from "@/lib/userStore";
 import LatestCard from "@/components/LatestCard";
 import { Card, CardContent } from "@/components/ui/card";

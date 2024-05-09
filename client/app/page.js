@@ -9,7 +9,7 @@ import LatestRecipesCarousel from "@/components/LatestRecipesCarousel";
 import { useEffect } from "react";
 
 export default function Home() {
-  const { drinkRecipe, setStoredRecipes } = userStore();
+  const { drinkRecipe, setStoredRecipes, storedRecipes } = userStore();
   useEffect(() => {
     const fetchData = async () => {
       const api_url =
@@ -46,9 +46,9 @@ export default function Home() {
         </div>
       </div>
       <div className="border-t border-gray-800 w-full mt-20"></div>
-      <Transition>
-        <LatestRecipesCarousel />
-      </Transition>
+      <div>
+        <Transition>{storedRecipes && <LatestRecipesCarousel />}</Transition>
+      </div>
     </main>
   );
 }
