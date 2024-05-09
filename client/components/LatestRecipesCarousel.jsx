@@ -16,7 +16,7 @@ export default function LatestRecipesCarousel() {
   const getLatest = async () => {
     const api_url =
       process.env.NODE_ENV === "production"
-        ? `${process.env.NEXT_PUBLIC_GCP_BACKEND_CONTAINER}/latest_recipes/`
+        ? `https://cocktail-may8-2twnlcizjq-wl.a.run.app/latest_recipes/`
         : "http://127.0.0.1:8000/latest_recipes";
     try {
       const response = await fetch(api_url, {
