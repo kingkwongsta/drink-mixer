@@ -32,9 +32,8 @@ export default function Home() {
         console.error(error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [drinkRecipe]);
 
   return (
     <main className="w-full px-12 py-12 md:py-24">
@@ -46,8 +45,10 @@ export default function Home() {
           <Transition>{drinkRecipe && <RecipeCard />}</Transition>
         </div>
       </div>
-      <div class="border-t border-gray-800 w-full mt-20"></div>
-      <LatestRecipesCarousel />
+      <div className="border-t border-gray-800 w-full mt-20"></div>
+      <Transition>
+        <LatestRecipesCarousel />
+      </Transition>
     </main>
   );
 }
