@@ -29,14 +29,6 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/test")
-async def testing():
-    return {"message": "TESTING TESTING TESTING"}
-
-@app.get("/more")
-async def more():
-    return {"1 + 1 = 3"}
-
 #langchain
 # @app.get("/cocktail")
 # async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
