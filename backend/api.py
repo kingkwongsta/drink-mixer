@@ -29,25 +29,28 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-#langchain
+#Langchain
 # @app.get("/cocktail")
 # async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
 #     return generate_cocktail_recipe(liquor, flavor, mood)
 
-#Just Octoai API
+#Octoai API to generate cocktail recipe
 @app.get("/cocktail")
 async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
     recipe_json = json.loads(create_recipe(liquor, flavor, mood))
     return recipe_json
 
+#supabase API to retrieve latest # of generated recipes
 @app.get("/latest_recipes")
 async def latest_recipes_handler():
     return get_latest()
 
+#supabase API to add recipe to database
 @app.post("/add_recipe/")
 async def add_recipe_handler(data: Drink):
     add_recipe(data)
 
+#supabase API to upload a file to object storage
 @app.get("/upload")
 async def upload_handler():
     upload()
