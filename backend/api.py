@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from models import Drink
-from cocktail import generate_cocktail_recipe
+# from cocktail import generate_cocktail_recipe
 from generate_recipe import create_recipe
 from db import get_latest, add_recipe, upload
 import json
