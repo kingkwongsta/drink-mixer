@@ -3,13 +3,14 @@ import Title from "@/components/title";
 import Dropdown from "@/components/dropdown";
 import GenerateRecipe from "@/components/GenerateRecipe";
 import RecipeCard from "@/components/RecipeCard";
+import LatestRecipesCarousel from "@/components/LatestRecipesCarousel";
 import userStore from "@/lib/userStore";
 import Transition from "@/lib/transition";
-import LatestRecipesCarousel from "@/components/LatestRecipesCarousel";
 import { useEffect } from "react";
 
 export default function Home() {
   const { drinkRecipe, setStoredRecipes, storedRecipes } = userStore();
+  //hydrate page with latest recipes
   useEffect(() => {
     const fetchData = async () => {
       const api_url =
@@ -45,6 +46,7 @@ export default function Home() {
           <Transition>{drinkRecipe && <RecipeCard />}</Transition>
         </div>
       </div>
+      {/* LINE ELEMENT */}
       {/* <div className="border-t border-gray-800 w-full mt-20"></div> */}
       <div className="">
         <Transition>{storedRecipes && <LatestRecipesCarousel />}</Transition>
