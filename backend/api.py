@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import Drink
 # from cocktail import generate_cocktail_recipe
 from generate_recipe import create_recipe
+from test import create_recipe2
 from db import get_latest, add_recipe, upload
 import json
 
@@ -35,10 +36,17 @@ async def root():
 #     return generate_cocktail_recipe(liquor, flavor, mood)
 
 #Octoai API to generate cocktail recipe
+# @app.get("/cocktail")
+# async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
+#     recipe_json = json.loads(create_recipe(liquor, flavor, mood))
+#     return recipe_json
+
+# TESTING OPENAI
 @app.get("/cocktail")
 async def get_cocktail(liquor: str = Query(default=None), flavor: str = Query(default=None), mood: str = Query(default=None)):
-    recipe_json = json.loads(create_recipe(liquor, flavor, mood))
+    recipe_json = json.loads(create_recipe2(liquor, flavor, mood))
     return recipe_json
+
 
 #supabase API to retrieve latest # of generated recipes
 @app.get("/latest_recipes")
