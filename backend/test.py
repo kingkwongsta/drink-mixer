@@ -17,7 +17,7 @@ def create_recipe2(liquor, flavor, mood):
     response_format={ "type": "json_object" },
     messages=[
       {"role": "system", "content": "You are a helpful mixologist designed to output JSON."},
-      {"role": "user", "content": f'''Create a unique creative advanced cocktail recipe based on the following user preferences of {liquor}, {flavor}, {mood}. Return your response in the following JSON structure: {{"name": "DRINK_NAME", "description": "DRINK_DESCRIPTION", "ingredients": [{{"name": "INGREDIENT_NAME", "quantity": "INGREDIENT_QUANTITY"}}], "instructions": ["step 1", "step 2", "step 3"]}}'''}
+      {"role": "user", "content": f'''Create a unique creative advanced cocktail recipe based on the following user preferences of {liquor}, {flavor}, {mood}.  Name the drink something creative with a lot of variability. Return your response in the following JSON structure: {{"name": "DRINK_NAME", "description": "DRINK_DESCRIPTION", "ingredients": [{{"name": "INGREDIENT_NAME", "quantity": "INGREDIENT_QUANTITY"}}], "instructions": ["step 1", "step 2", "step 3"]}}'''}
     ]
   )
   print("all done")
