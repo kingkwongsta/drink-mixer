@@ -1,5 +1,7 @@
 from octoai.client import Client
-from octoai.chat import TextModel, ChatCompletionResponseFormat
+# from octoai.chat import TextModel, ChatCompletionResponseFormat
+from octoai.text_gen import ChatMessage
+
 from models import DrinkRecipe
 import os
 from dotenv import load_dotenv
