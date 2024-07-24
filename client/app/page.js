@@ -15,7 +15,7 @@ export default function Home() {
     const fetchData = async () => {
       const api_url =
         process.env.NODE_ENV === "production"
-          ? `https://cocktail-may8-2twnlcizjq-wl.a.run.app/latest_recipes`
+          ? `https://july23-2-2twnlcizjq-uc.a.run.app/latest_recipes`
           : "http://127.0.0.1:8000/latest_recipes";
 
       try {

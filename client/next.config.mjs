@@ -7,7 +7,7 @@ const nextConfig = {
     },
     {
       source: "/cocktail",
-      destination: `https://cocktail-may8-2twnlcizjq-wl.a.run.app/cocktail`,
+      destination: `https://july23-2-2twnlcizjq-uc.a.run.app/cocktail`,
     },
     {
       source: "/add_recipe",
@@ -15,7 +15,7 @@ const nextConfig = {
     },
     {
       source: "/add_recipe",
-      destination: `https://cocktail-may8-2twnlcizjq-wl.a.run.app/add_recipe/`,
+      destination: `https://july23-2-2twnlcizjq-uc.a.run.app/add_recipe/`,
     },
     {
       source: "/latest_recipes",
@@ -23,7 +23,7 @@ const nextConfig = {
     },
     {
       source: "/latest_recipes",
-      destination: `https://cocktail-may8-2twnlcizjq-wl.a.run.app/latest_recipes/`,
+      destination: `https://july23-2-2twnlcizjq-uc.a.run.app/latest_recipes/`,
     },
   ],
   async headers() {
