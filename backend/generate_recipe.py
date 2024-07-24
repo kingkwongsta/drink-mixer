@@ -1,6 +1,7 @@
 from octoai.client import Client
 # from octoai.chat import TextModel, ChatCompletionResponseFormat
-from octoai.text_gen import ChatMessage
+from octoai.text_gen import ChatCompletionResponseFormat, ChatMessage
+
 
 from models import DrinkRecipe
 import os
@@ -14,12 +15,12 @@ def create_recipe(liquor, flavor, mood):
 
     client = Client(token=octoai_api_token)
 
-    completion = client.chat.completions.create(
+    completion = client.text_gen.create_chat_completion(
         messages=[
             {"role": "system", "content": "You are an expert mixologist"},
             {"role": "user", "content": f"Create a unique creative advance cocktail recipe based on the following user preferences of {liquor}, {flavor}, {mood}. Do not include {flavor}, {liquor}, or {mood} in the recipe name."},
         ],
-        model=TextModel.MISTRAL_7B_INSTRUCT,
+        model="mistral-7b-instruct",
         max_tokens=2000,
         presence_penalty=0,
         temperature=0.8,
