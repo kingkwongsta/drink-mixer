@@ -1,4 +1,4 @@
-from octoai.client import Client
+from octoai.client import OctoAI
 # from octoai.chat import TextModel, ChatCompletionResponseFormat
 from octoai.text_gen import ChatCompletionResponseFormat, ChatMessage
 
@@ -13,7 +13,7 @@ def create_recipe(liquor, flavor, mood):
 
     octoai_api_token = os.getenv("OCTOAI_API_TOKEN")
 
-    client = Client(token=octoai_api_token)
+    client = OctoAI(api_key=octoai_api_token)
 
     completion = client.text_gen.create_chat_completion(
         messages=[
