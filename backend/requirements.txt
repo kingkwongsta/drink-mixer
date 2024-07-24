@@ -7,3 +7,5 @@ pydantic
 gunicorn
 supabase
 requests
+anthropic
+openai
